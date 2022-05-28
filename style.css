@@ -1,0 +1,9 @@
+body {
+    color: #fff;
+    background-color: #4F8BF9;
+}
+
+.stTextInput>div>div{
+    color: #4F8BF9;
+    border-radius: 100%;
+}

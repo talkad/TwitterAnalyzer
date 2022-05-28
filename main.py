@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 import streamlit as st
 import scraper
+from datetime import date
 
 
 def local_css(file_name):
@@ -26,7 +26,7 @@ def main():
         with st.spinner('Loading...'):
             # DUMMY DATA
             # investment_options = pd.Index([0, 0, 1, 1, 2, 2, 2])
-            sell, buy, hold = scraper.keywords_counter()
+            sell, buy, hold = scraper.keywords_counter(date(2022, 4, 1), date(2022, 4, 20))
             print(sell, buy, hold)
 
             # investment_counts = investment_options.value_counts()

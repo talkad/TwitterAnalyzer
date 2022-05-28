@@ -16,7 +16,10 @@ class TwitterScraper:
         self.update_creds()
         self.python_tweets = Twython(self.credentials['CONSUMER_KEY'], self.credentials['CONSUMER_SECRET'],
                                      self.credentials['ACCESS_TOKEN'], self.credentials['ACCESS_SECRET'])
-        self.tokens_required = ["AMZN", "amazon", "#amazon", "amzn", "@amazon"]
+        self.tokens_required = ["$amzn", "AMZN", "amazon", "#amazon", "amzn", "@amazon"]
+        # ["Facebook", "facebook", "meta", "fb", "#fb", "$fb"]
+        # ["Tsla", "tsla", "$tsla", "#tesla", "eilonmusk"]
+        # ["Ford", "ford", "f", "#f" ,"$f"]
         self.keywords = {
             'buy_words': ["outperform", "buy", "sector perform", "hot", "bulles", "overweight", "positive", "strong buy"],
             'sell_words': ["sell", "underperform", "underweight", "underwt", "in-line", "frozen", "bleeding", "reduce"],

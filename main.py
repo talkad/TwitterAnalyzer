@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import streamlit as st
-import scraper
+from scraper import TwitterScraper
 from datetime import datetime, timedelta
 
 
@@ -15,6 +15,7 @@ def v_spacer(height) -> None:
 
 
 def main():
+    scraper = TwitterScraper()
     local_css("style.css")
 
     st.title('Twitter Smart Investing')
@@ -36,8 +37,10 @@ def main():
         graph_placeholder = st.empty()
         tweets_placeholder = st.empty()
         with st.spinner('Loading...'):
+            # load the data
+            scraper.fetch_data(start_date, end_date)
             # pass stock symbol, start date & end date
-            sell, buy, hold = scraper.keywords_counter(start_date, end_date)
+            sell, buy, hold = scraper.keywords_counter()
             investment_counts = [sell, buy, hold]
             max_value = max(investment_counts)
             best_option_index = list(investment_counts).index(max_value)
@@ -75,11 +78,14 @@ def main():
             col_user_name.write("**User Name**")
             col_followers.write("**Number of Followers**")
             col_tweet.write("**Tweet**")
-            # TODO: use best tweets function
-            for i in range(1, 10):
-                col_user_name.write(f'{i}')
-                col_followers.write(f'{i * i}')
-                col_tweet.write(f'{i * i * i}')
+
+            # get best tweets
+            tweets_df = scraper.get_popular_tweets()
+
+            for index, row in tweets_df.iterrows():
+                col_user_name.write(row['user'])
+                col_followers.write(row['followers_count'])
+                col_tweet.write(row['text'])
 
 
 if __name__ == '__main__':

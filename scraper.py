@@ -54,12 +54,11 @@ class TwitterScraper:
         data = {'user': [], 'date': [], 'text': [], 'favorite_count': [], 'followers_count': []}
 
         # check if stock name exists
-        if stock_name not in self.tokens_required.keys():
-            return data
-
-        # shuffle tokens
-        tokens = self.tokens_required[stock_name]
-        random.shuffle(tokens)
+        if stock_name in self.tokens_required.keys():
+            tokens = self.tokens_required[stock_name]
+            random.shuffle(tokens)  # shuffle tokens
+        else:
+            tokens = [stock_name]
 
         start_date = startDate
         end_date = endDate

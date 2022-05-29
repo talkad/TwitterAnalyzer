@@ -145,7 +145,6 @@ class TwitterScraper:
             map(lambda word: word + '.', self.keywords['holding_words']))
 
     def keywords_counter(self):
-
         # check if dataframe is empty
         if self.df.empty:
             return 0, 0, 0
@@ -154,7 +153,7 @@ class TwitterScraper:
         buy_words = self.df.apply(lambda row: occurences_counter(self.keywords['buy_words'], row['text']), axis=1)
         hold_words = self.df.apply(lambda row: occurences_counter(self.keywords['holding_words'], row['text']), axis=1)
 
-        return sell_words.sum(), buy_words.sum(), hold_words.sum()
+        return buy_words.sum(), sell_words.sum(), hold_words.sum()
 
     def get_popular_tweets(self):
         return self.df.sort_values(by='followers_count', ascending=False).head(10)[['user', 'followers_count', 'text']]

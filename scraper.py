@@ -43,7 +43,7 @@ class TwitterScraper:
 
         all_keywords = self.keywords['buy_words'] + self.keywords['sell_words'] + self.keywords['holding_words']
 
-        COUNT_TWEETS__FETCHED = 1000  # TODO: change it to 2000
+        COUNT_TWEETS__FETCHED = 2500
         total = 0
         itr_idx = 0
         TWEETS_PER_REQUEST = 100

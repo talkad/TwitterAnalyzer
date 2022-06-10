@@ -13,12 +13,12 @@ The UI is written using Streamlit which is Streamlit is an open-source app frame
 Create beautiful web apps in minutes. using streamlit we plot a pie graph with the amount of tweets,
 which used the name of the share along with the recommendation words.
 
-![image](https://user-images.githubusercontent.com/48416212/172024882-f004a379-4fda-41ca-b537-873f7621af65.png)
+![image](https://user-images.githubusercontent.com/48416212/173044547-143aebea-9e09-434b-acec-033dfa45e7e8.png)
 
 The tool also presents the tweets content along with the author.
 Could be used to find potential good times to invest and find some interesting patterns in the market in the past.
 
-![image](https://user-images.githubusercontent.com/48416212/172024912-1aea7084-2539-486f-94ee-69ec2586ceaf.png)
+![image](https://user-images.githubusercontent.com/48416212/173045131-3c8e3c29-0966-4656-bb9b-86fba345500d.png)
 
 
 
